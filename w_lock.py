@@ -9,9 +9,10 @@ class DiningPhilosophers:
         self.chopsticks = [Lock() for _ in range(number_of_philosophers)]
         self.status = ['  T  ' for _ in range(number_of_philosophers)]
         self.chopstick_holders = ['     ' for _ in range(number_of_philosophers)]
+        self.number_of_philosophers = number_of_philosophers
 
     def philosopher(self, i):
-        j = (i+1) % 5
+        j = (i+1) % self.number_of_philosophers
         while self.meals[i] > 0:
             self.status[i] = '  T  '
             time.sleep(random.random())
